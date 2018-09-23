@@ -1,0 +1,44 @@
+ul li{
+    list-style: none;
+}
+
+#custom-selector-container{
+    margin: 10px 0 0 15px;
+}
+
+#site-display-container{
+    margin-top: 20px;
+    width:250px;
+    height:40px;
+    border:1px black solid;
+}
+
+#item-display{
+    padding-left: 20px;
+}
+
+#site-selector-container{
+    margin-top:20px;
+    width:250px;
+    max-height: 300px;
+    display:none;
+    border: 1px solid black;
+    overflow-y: scroll;
+}
+
+.item{
+    padding: 15px 0 15px 25px;
+}
+
+.item:hover{
+    background-color:lightgrey;
+}
+
+.area{
+    padding-left: 50px;
+}
+
+.region{
+    padding-left: 75px;
+}
+
