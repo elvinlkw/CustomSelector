@@ -164,7 +164,7 @@ var add_template = (name) => {
     return (
         `<li>
             <div class="item">${name}</div>
-            <ul><ul>
+            <ul></ul>
         </li>`
     );
 }

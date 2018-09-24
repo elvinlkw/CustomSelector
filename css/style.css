@@ -17,6 +17,8 @@ ul li{
     height:40px;
     border:1px black solid;
     box-shadow: 5px 10px #888888;
+    background-image: linear-gradient(to right, white, darkgrey);
+
 }
 
 #dropdown-selector{
@@ -50,6 +52,7 @@ ul li{
     max-height: 300px;
     display:none;
     border: 1px solid black;
+    box-shadow: 4px 1px #888888;
     overflow-y: scroll;
 }
 
@@ -58,11 +61,23 @@ ul li{
 }
 
 .item:hover{
-    background-color:lightgrey;
+    background-color:grey;
 }
 
 .area{
     padding-left: 50px;
+}
+
+.area-list{
+    background-color: #f4f4f4;
+}
+
+.region-list{
+    background-color: #e5e4e4;
+}
+
+.site-list{
+    background-color: #d6d6d6;
 }
 
 .region{
@@ -73,33 +88,7 @@ ul li{
     padding-left:100px;
 }
 
-.company:before{
-        content: "";
-        border-color: transparent #111;
-        border-style: solid;
-        border-width: 0.30em 0 0.30em 0.30em;
-        display: block;
-        height: 0;
-        width: 0;
-        left: -13px;
-        top: 12px;
-        position: relative;
-}
-
-.area:before{
-    content: "";
-    border-color: transparent #111;
-    border-style: solid;
-    border-width: 0.30em 0 0.30em 0.30em;
-    display: block;
-    height: 0;
-    width: 0;
-    left: -13px;
-    top: 12px;
-    position: relative;
-}
-
-.region:before{
+.region:before, .area:before, .company:before{
     content: "";
     border-color: transparent #111;
     border-style: solid;
