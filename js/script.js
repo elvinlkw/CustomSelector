@@ -152,6 +152,7 @@ $(document).ready(function() {
     });
     
     //hides site display to display the site dropdown menu
+    //when the site display box is clicked
     $site_display.click(function() {
         $(this).hide();
         $site_selector.show();
