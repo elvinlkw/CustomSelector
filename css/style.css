@@ -15,6 +15,9 @@ ul li{
 
 #item-display{
     padding-left: 20px;
+    padding-top: 8px;
+    font-size: 125%;
+    font-weight:bold;
 }
 
 #site-selector-container{

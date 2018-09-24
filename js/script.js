@@ -23,38 +23,54 @@ const data = {
     'Company D': {}
 }
 
-$(document).ready(function() {
+jQuery(document).ready(function($) {
 
     buildStructure();
 
     var $site_display = $('#site-display-container');
     var $site_selector = $('#site-selector-container');
+    var $item_display = $('#item-display');
     var $company = $('.company');
     var $area = $('.area');
     var $region = $('.region');
+    var $site = $('.site')
 
     $company.click(function(){
+
+        //check if clicked element has anything open
         var isOpen = $(this).parent().find('.area').is(':visible');
         if(isOpen){
             closeCompanyDescendents($(this));
+        } else{
+            $(this).parent().find('.area').slideDown();
         }
         closeOtherCompanyDescendents($(this));
     
-        $(this).parent().find('.area').slideToggle();
+        
     });
 
     $area.click(function(){
         var isOpen = $(this).parent().find('.region').is(':visible');
         if(isOpen){
             closeAreaDescendents($(this));
+        }else{
+            $(this).parent().find('.region').slideDown();
         }
         closeOtherAreaDescendents($(this));
-        $(this).parent().find('.region').slideToggle();
+        
     });
 
     $region.click(function(){
         $(this).parent().find('.site').slideToggle();
         closeOtherRegionDescendents($(this));
+    });
+
+    $site.click(function(e){
+        e.stopPropagation();
+        $item_display.html($(this).text());
+        $site_selector.hide();
+        $site_display.show();
+        closeAll();
     });
 
     $site_display.click(function() {
@@ -102,6 +118,7 @@ function buildStructure(){
 }
 
 function closeCompanyDescendents(that){
+    that.parent().find('.area').slideUp();
     that.parent().find('.site').slideUp();
     that.parent().find('.region').slideUp();
 }
@@ -109,20 +126,19 @@ function closeCompanyDescendents(that){
 function closeOtherCompanyDescendents(that){
     var otherCompanies = $('.company').not(that);
     otherCompanies.each(function(){
-        $(this).parent().find('.area').slideUp();
         closeCompanyDescendents($(this));
     });
 }
 
 function closeAreaDescendents(that){
+    that.parent().find('.region').slideUp();
     that.parent().find('.site').slideUp();
 }
 
 function closeOtherAreaDescendents(that){
     var otherAreas = $('.area').not(that);
     otherAreas.each(function(){
-        $(this).parent().find('.region').slideUp();
-        closeCompanyDescendents($(this));
+        closeAreaDescendents($(this));
     });
 }
 
@@ -130,5 +146,12 @@ function closeOtherRegionDescendents(that){
     var otherRegion = $('.region').not(that);
     otherRegion.each(function(){
         $(this).parent().find('.site').slideUp();
+    })
+}
+
+function closeAll() {
+    $('.company').each(function(){
+        $('.area').slideUp();
+        closeCompanyDescendents($(this));
     })
 }
