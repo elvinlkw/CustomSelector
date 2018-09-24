@@ -61,11 +61,15 @@ ul li{
 }
 
 .item:hover{
-    background-color:grey;
+    background-color:lightgrey;
 }
 
 .area{
     padding-left: 50px;
+}
+
+.company-list{
+    background-color:white;
 }
 
 .area-list{
