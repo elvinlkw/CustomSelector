@@ -32,13 +32,6 @@ $(document).ready(function() {
     var $company = $('.company');
     var $area = $('.area');
     var $region = $('.region');
-    var $site = $('.site');
-
-    $area.css('display', 'none');
-    $region.css('display', 'none');
-    $site.css('display', 'none');
-    
-    
 
     $company.click(function(){
         var isOpen = $(this).parent().find('.area').is(':visible');
@@ -87,20 +80,20 @@ function buildStructure(){
 
         for(var area in data[company]){
             $('.area-list').last().append(add_template(area));
-            $("li > div").last().addClass("item area").after(add_ul());
+            $("li > div").last().addClass("item area hide").after(add_ul());
             $("ul").last().addClass("region-list");
             
             for(var region in data[company][area]){
                 $('.region-list').last().append(add_template(region));
 
                 //add classname to last div created and then create a ul element right after
-                $("li > div").last().addClass("item region").after(add_ul());
+                $("li > div").last().addClass("item region hide").after(add_ul());
                 $("ul").last().addClass("site-list");
                 
                 for(var i = 0; i <= data[company][area][region].length-1; i++){
                     var site = data[company][area][region][i];
                     $('.site-list').last().append(add_template(site));
-                    $("li > div").last().addClass("item site");
+                    $("li > div").last().addClass("item site hide");
                 }
             }
         }
